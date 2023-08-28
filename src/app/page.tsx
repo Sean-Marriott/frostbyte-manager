@@ -80,6 +80,7 @@ export default function Home() {
               </div>
           </div>
       </div>
+      <h2 className="recent-orders">Recent Orders</h2>
       <RecentOrders />
   </div>
   )

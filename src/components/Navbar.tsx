@@ -1,4 +1,10 @@
+"use client";
+import Link from "next/link";
+import { usePathname, useRouter } from 'next/navigation';
+
 const Navbar = () => {
+    const router = useRouter();
+
     return (
         <aside>
             <div className="toggle">
@@ -14,12 +20,12 @@ const Navbar = () => {
             </div>
 
             <div className="sidebar">
-                <a href="#" className="active">
+                <Link href={`/`} className={usePathname() == "/" ? "active" : ""}>
                     <span className="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Dashboard</h3>
-                </a>
+                </Link>
                 <a href="#">
                     <span className="material-icons-sharp">
                         build_circle
@@ -38,12 +44,12 @@ const Navbar = () => {
                     </span>
                     <h3>Inventory</h3>
                 </a>
-                <a href="#">
+                <Link href={`/parts`} className={usePathname() == "/parts" ? "active" : ""}>
                     <span className="material-icons-sharp">
                         local_shipping
                     </span>
                     <h3>Shipping</h3>
-                </a>
+                </Link>
                 <a href="#">
                     <span className="material-icons-sharp">
                         insights

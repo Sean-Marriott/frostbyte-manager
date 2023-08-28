@@ -10,25 +10,24 @@ const RecentOrders = async () => {
     const parts = await getParts();
     return (
         <div className="recent-orders">
-                <h2>Recent Orders</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Condition</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {parts.items?.map((part) => {
-                            return <Part key={part.id} part={part} />;
-                        })}
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Condition</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {parts.items?.map((part) => {
+                        return <Part key={part.id} part={part} />;
+                    })}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

@@ -57,7 +57,7 @@ export default function RootLayout({
                           <small className="text-muted">Admin</small>
                       </div>
                       <div className="profile-photo">
-                          <img src="images/sean.jpg" />
+                          <img src="/images/sean.jpg" />
                       </div>
                   </div>
 
@@ -65,7 +65,7 @@ export default function RootLayout({
 
               <div className="user-profile">
                   <div className="logo">
-                      <img src="images/sean.jpg" />
+                      <img src="/images/sean.jpg" />
                       <h2>Sean Marriott</h2>
                       <p>Fullstack Web Developer</p>
                   </div>

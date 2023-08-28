@@ -9,7 +9,7 @@ const Navbar = () => {
         <aside>
             <div className="toggle">
                 <div className="logo">
-                    <img src="images/logo.png" />
+                    <img src="/images/logo.png" />
                     <h2>FrostByte<span className="primary">PCs</span></h2>
                 </div>
                 <div className="close" id="close-btn">

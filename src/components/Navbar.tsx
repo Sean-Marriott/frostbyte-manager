@@ -40,6 +40,12 @@ const Navbar = () => {
                 </a>
                 <a href="#">
                     <span className="material-icons-sharp">
+                        local_shipping
+                    </span>
+                    <h3>Shipping</h3>
+                </a>
+                <a href="#">
+                    <span className="material-icons-sharp">
                         insights
                     </span>
                     <h3>Analytics</h3>

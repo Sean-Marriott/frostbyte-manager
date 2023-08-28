@@ -1,9 +1,8 @@
-import PocketBase from 'pocketbase';
+import PocketBase from 'pocketbase'; 
 
 async function getParts() {
     const db = new PocketBase('http://127.0.0.1:8090');
-    const data = await db.collection('parts').getFullList();
-
+    const data = await db.collection('parts').getList(1, 10, {filter: 'status != "Recieved"'})
     return data;
 }
 
@@ -24,8 +23,8 @@ const RecentOrders = async () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {parts?.map((part) => {
-                            return <Part key={part._id} part={part} />;
+                    {parts.items?.map((part) => {
+                            return <Part key={part.id} part={part} />;
                         })}
                     </tbody>
                 </table>
@@ -34,9 +33,9 @@ const RecentOrders = async () => {
 }
 
 function Part({ part }: any) {
-    const { name, description, price, condition, status } = part || {};
+    const { id, name, description, price, condition, status } = part || {};
     return (   
-        <tr>
+        <tr key={id}>
             <td>{name}</td>
             <td>{description}</td>
             <td>{price}</td>

@@ -44,7 +44,7 @@ const Navbar = () => {
                     </span>
                     <h3>Inventory</h3>
                 </a>
-                <Link href={`/parts`} className={usePathname() == "/parts" ? "active" : ""}>
+                <Link href={`/parts`} className={usePathname().includes("/parts") ? "active" : ""}>
                     <span className="material-icons-sharp">
                         local_shipping
                     </span>

@@ -40,7 +40,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
   };
 }
 
-export default function MultipleSelect() {
+export default function ConditionSelect() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
 
@@ -55,16 +55,15 @@ export default function MultipleSelect() {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+      <FormControl fullWidth>
+        <InputLabel id="demo-multiple-condition-label">Condition</InputLabel>
         <Select
-          labelId="demo-multiple-name-label"
-          id="demo-multiple-name"
+          labelId="demo-multiple-condition-label"
+          id="demo-multiple-condition"
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput label="Name" />}
+          input={<OutlinedInput label="Condition" />}
           MenuProps={MenuProps}
         >
           {names.map((name) => (
@@ -78,6 +77,5 @@ export default function MultipleSelect() {
           ))}
         </Select>
       </FormControl>
-    </div>
   );
 }

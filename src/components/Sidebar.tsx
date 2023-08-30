@@ -1,10 +1,10 @@
 "use client";
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Stack } from "@mui/material";
 import StyledPaper from "./StyledPaper";
 
 const Sidebar = () => {
   return (
-    <div className="right-section">
+    <Stack spacing={2}>
       <div className="nav">
         <button id="menu-btn">
           <span className="material-icons-sharp">menu</span>
@@ -28,15 +28,15 @@ const Sidebar = () => {
       </div>
 
       <StyledPaper sx={{ p: 3, borderRadius: 7 }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Stack sx={{alignItems: 'center' }} spacing={1}>
           <Avatar
             alt="Sean Marriott Profile Picture"
             src="/images/sean.jpg"
-            sx={{ width: 135, height: 135 }}
+            sx={{ width: 130, height: 130 }}
           />
           <h2>Sean Marriott</h2>
           <p>Fullstack Web Developer</p>
-        </Box>
+        </Stack>
       </StyledPaper>
 
       <div className="reminders">
@@ -78,7 +78,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Stack>
   );
 };
 

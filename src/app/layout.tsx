@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Grid from '@mui/material/Unstable_Grid2'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,104 +31,14 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
       </head>
       <body className={inter.className}>
-        <div className="container">
-          <Navbar />
-          <main>
-          {children}
-          </main>
-          <div className="right-section">
-              <div className="nav">
-                  <button id="menu-btn">
-                      <span className="material-icons-sharp">
-                          menu
-                      </span>
-                  </button>
-                  <div className="dark-mode">
-                      <span className="material-icons-sharp active">
-                          light_mode
-                      </span>
-                      <span className="material-icons-sharp">
-                          dark_mode
-                      </span>
-                  </div>
-
-                  <div className="profile">
-                      <div className="info">
-                          <p>Hey, <b>Sean</b></p>
-                          <small className="text-muted">Admin</small>
-                      </div>
-                      <div className="profile-photo">
-                          <img src="/images/sean.jpg" />
-                      </div>
-                  </div>
-
-              </div>
-
-              <div className="user-profile">
-                  <div className="logo">
-                      <img src="/images/sean.jpg" />
-                      <h2>Sean Marriott</h2>
-                      <p>Fullstack Web Developer</p>
-                  </div>
-              </div>
-
-              <div className="reminders">
-                  <div className="header">
-                      <h2>Reminders</h2>
-                      <span className="material-icons-sharp">
-                          notifications_none
-                      </span>
-                  </div>
-
-                  <div className="notification">
-                      <div className="icon">
-                          <span className="material-icons-sharp">
-                              handyman
-                          </span>
-                      </div>
-                      <div className="content">
-                          <div className="info">
-                              <h3>Repair</h3>
-                              <small className="text_muted">
-                                  08:00 AM - 12:00 PM
-                              </small>
-                          </div>
-                          <span className="material-icons-sharp">
-                              more_vert
-                          </span>
-                      </div>
-                  </div>
-
-                  <div className="notification">
-                      <div className="icon">
-                          <span className="material-icons-sharp">
-                              location_on
-                          </span>
-                      </div>
-                      <div className="content">
-                          <div className="info">
-                              <h3>Pickup</h3>
-                              <small className="text_muted">
-                                  08:00 AM - 12:00 PM
-                              </small>
-                          </div>
-                          <span className="material-icons-sharp">
-                              more_vert
-                          </span>
-                      </div>
-                  </div>
-
-                  <div className="notification add-reminder">
-                      <div>
-                          <span className="material-icons-sharp">
-                              add
-                          </span>
-                          <h3>Add Reminder</h3>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <Grid container sx={{m:1, ml:3}}>
+          <Grid xs={2}>
+            <Navbar />
+          </Grid>
+          <Grid xs={10}>
+            {children}
+          </Grid>
+        </Grid>
       </body>
     </html>
   )

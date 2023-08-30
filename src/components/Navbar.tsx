@@ -1,4 +1,5 @@
 "use client";
+import { Box, Stack } from "@mui/material";
 import Link from "next/link";
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -6,6 +7,7 @@ const Navbar = () => {
     const router = useRouter();
 
     return (
+        <Box sx={{border:1, mr:2}}>
         <aside>
             <div className="toggle">
                 <div className="logo">
@@ -58,6 +60,7 @@ const Navbar = () => {
                 </a>
             </div>
         </aside>
+        </Box>
     );
 }
 

@@ -1,7 +1,6 @@
 const PcShowcase = () => {
   return (
     <div className="new-pcs">
-      <h2>Current Listings</h2>
       <div className="user-list">
         <div className="user">
           <img src="/images/profile-1.jpg" />

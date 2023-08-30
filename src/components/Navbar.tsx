@@ -7,7 +7,7 @@ const Navbar = () => {
     const router = useRouter();
 
     return (
-        <Box sx={{border:1, mr:2}}>
+        <Box sx={{ mr:4 }}>
         <aside>
             <div className="toggle">
                 <div className="logo">

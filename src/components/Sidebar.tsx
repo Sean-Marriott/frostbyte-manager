@@ -5,28 +5,6 @@ import StyledPaper from "./StyledPaper";
 const Sidebar = () => {
   return (
     <Stack spacing={2}>
-      <div className="nav">
-        <button id="menu-btn">
-          <span className="material-icons-sharp">menu</span>
-        </button>
-        <div className="dark-mode">
-          <span className="material-icons-sharp active">light_mode</span>
-          <span className="material-icons-sharp">dark_mode</span>
-        </div>
-
-        <div className="profile">
-          <div className="info">
-            <p>
-              Hey, <b>Sean</b>
-            </p>
-            <small className="text-muted">Admin</small>
-          </div>
-          <div className="profile-photo">
-            <img src="/images/sean.jpg" />
-          </div>
-        </div>
-      </div>
-
       <StyledPaper sx={{ p: 3, borderRadius: 7 }}>
         <Stack sx={{alignItems: 'center' }} spacing={1}>
           <Avatar

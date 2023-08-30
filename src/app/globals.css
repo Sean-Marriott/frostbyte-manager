@@ -126,7 +126,7 @@ aside{
 }
 
 aside .toggle{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
 }
@@ -281,15 +281,10 @@ aside .sidebar .message-count{
     width: 100%;
 }
 
- .new-pcs{
-    margin-top: 1.3rem;
-}
-
  .new-pcs .user-list{
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
-    margin-top: 1rem;
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: space-around;
@@ -531,21 +526,9 @@ aside .sidebar .message-count{
      .new-pcs .user-list .user{
         flex-basis: 40%;
     }
-
-     .recent-orders {
-        width: 94%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 0.8rem;
-    }
-
-     .recent-orders table{
-        width: 63vw;
-    }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .container{
         width: 100%;
         grid-template-columns: 1fr;
@@ -588,6 +571,10 @@ aside .sidebar .message-count{
         margin-top: 1rem;
     }
 
+    aside .toggle {
+        display: flex;
+    }
+
     aside .toggle .close{
         display: inline-block;
         cursor: pointer;
@@ -599,7 +586,6 @@ aside .sidebar .message-count{
 
      .recent-orders{
         position: relative;
-        margin: 3rem 0 0 0;
         width: 100%;
     }
 

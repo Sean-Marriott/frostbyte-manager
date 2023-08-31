@@ -1,81 +1,46 @@
-"use client"
-import * as React from 'react';
-import { Theme, useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+"use client";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
+import { MenuItem, TextField } from "@mui/material";
+import { useFormContext } from "react-hook-form";
+
+const options = [
+  {
+    label: "New",
+    value: "New",
   },
-};
-
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  {
+    label: "Used",
+    value: "Used",
+  },
+  {
+    label: "Faulty",
+    value: "Faulty",
+  },
+  {
+    label: "Test",
+    value: "Test",
+  },
 ];
 
-function getStyles(name: string, personName: string[], theme: Theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 export default function ConditionSelect() {
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
+	const { register, control, formState } = useFormContext();
+	const { errors } = formState;
 
   return (
-      <FormControl fullWidth>
-        <InputLabel id="demo-multiple-condition-label">Condition</InputLabel>
-        <Select
-          labelId="demo-multiple-condition-label"
-          id="demo-multiple-condition"
-          multiple
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput label="Condition" />}
-          MenuProps={MenuProps}
-        >
-          {names.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <TextField
+      select
+      fullWidth
+      label="Condition"
+      defaultValue=""
+      inputProps={register("condition", {
+        required: "Please enter a condition",
+      })}
+    >
+      {options.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </TextField>
   );
 }

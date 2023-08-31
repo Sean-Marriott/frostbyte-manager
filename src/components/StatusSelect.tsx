@@ -1,20 +1,42 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+"use client";
 
-const StatusSelect = () => {
+import { MenuItem, TextField } from "@mui/material";
+import { useFormContext } from "react-hook-form";
+
+const options = [
+  {
+    label: "Awaiting Dispatch",
+    value: "Awaiting Dispatch",
+  },
+  {
+    label: "Shipped",
+    value: "Shipped",
+  },
+  {
+    label: "Recieved",
+    value: "Recieved",
+  }
+];
+
+export default function StatusSelect() {
+	const { register, control, formState } = useFormContext();
+	const { errors } = formState;
+
   return (
-    <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        label="Age"
-      >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
-    </FormControl>
+    <TextField
+      select
+      fullWidth
+      label="Status"
+      defaultValue=""
+      inputProps={register("status", {
+        required: "Please enter a status",
+      })}
+    >
+      {options.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </TextField>
   );
-};
-
-export default StatusSelect;
+}
